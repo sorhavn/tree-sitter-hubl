@@ -1,0 +1,29 @@
+{
+  "grammars": [
+    {
+      "name": "hubl",
+      "camelcase": "HubL",
+      "scope": "source.hubl",
+      "injection-regex": "^hubl$",
+      "file-types": ["hubl"],
+      "path": "."
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "license": "Unlicense",
+    "description": "Tree-sitter grammar for HubL (HubSpot templating language)",
+    "authors": [
+      {
+        "name": "Blue Amber"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/blueambr/tree-sitter-hubl"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "node": true
+  }
+}
