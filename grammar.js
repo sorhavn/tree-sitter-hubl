@@ -69,7 +69,8 @@ module.exports = grammar({
           $.filter,
           $.attribute,
           $.punctuation,
-          $.whitespace
+          $.whitespace,
+          $.expression
         )
       ),
 
@@ -92,7 +93,7 @@ module.exports = grammar({
     operator: (_$) =>
       token(
         choice(
-          "+", "-", "**", "*", "//", "/", "%", "~",
+          "+", "-", "**", "*", "//", "/", "%", "~", "!",
           "not", "and", "or", "is"
         )
       ),
@@ -102,11 +103,11 @@ module.exports = grammar({
 
     assignment_operator: (_$) => "=",
 
-    filter: ($) => seq("|", $.identifier),
+    filter: ($) => seq("|", optional($.whitespace), $.identifier),
 
     attribute: ($) => seq(".", $.identifier),
 
-    punctuation: (_$) => token(choice("(", ")", "[", "]", "{", "}", ",", ":")),
+    punctuation: (_$) => token(choice("(", ")", "[", "]", "{", "}", ",", ":", "?")),
 
     whitespace: (_$) => token(/\s+/),
   },
